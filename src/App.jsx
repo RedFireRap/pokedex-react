@@ -18,6 +18,7 @@ function App() {
       }
 
       const data = await response.json();
+      console.log(data);
 
       setPokemon(data);
       setError("");
@@ -112,13 +113,9 @@ function App() {
           boxShadow: `0 0 30px ${typeColors[mainType]}50`,
         }}
       >
-
         {pokemon && (
           <>
-            <img
-              src={pokemon.sprites.front_default}
-              alt={pokemon.name}
-            />
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
 
             <h2>
               {pokemon.name.charAt(0).toUpperCase() +
@@ -126,6 +123,10 @@ function App() {
             </h2>
 
             <div className="info">
+              <p>ID: {pokemon.id}</p>
+              <p>Altura: {pokemon.height / 10}m</p>
+              <p>Peso: {pokemon.weight / 10}kg</p>
+
               <div className="types">
                 {pokemon.types.map((type) => (
                   <span
@@ -139,6 +140,26 @@ function App() {
                   </span>
                 ))}
               </div>
+            </div>
+
+            <div className="stats">
+              {pokemon.stats.map((stat) => (
+                <div key={stat.stat.name} className="stat">
+                  <div className="stat-header">
+                    <span>{stat.stat.name}</span>
+                    <span>{stat.base_stat}</span>
+                  </div>
+
+                  <div className="stat-bar">
+                    <div
+                      className="stat-fill"
+                      style={{
+                        width: `${Math.min(stat.base_stat, 200) / 2}%`,
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </>
         )}

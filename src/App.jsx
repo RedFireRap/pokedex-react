@@ -6,32 +6,39 @@ function App() {
   const [pokemonName, setPokemonName] = useState("");
   const [pokemon, setPokemon] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const buscarPokemon = async () => {
-    try {
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
-      );
+  try {
+    setLoading(true);
 
-      if (!response.ok) {
-        throw new Error("Pokemon não encontrado");
-      }
+    await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      const data = await response.json();
-      console.log(data);
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
+    );
 
-      setPokemon(data);
-      setError("");
-    } catch (error) {
-      setPokemon(null);
-      setError("Pokémon não encontrado.");
+    if (!response.ok) {
+      throw new Error("Pokemon não encontrado");
     }
-  };
+
+    const data = await response.json();
+
+    setPokemon(data);
+    setError("");
+  } catch (error) {
+    setPokemon(null);
+    setError("Pokémon não encontrado.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   /* Função para buscar um Pokémon aleatório */
 
   const pokemonAleatorio = async () => {
     const randomId = Math.floor(Math.random() * 1025) + 1;
+    setLoading(true);
 
     try {
       const response = await fetch(
@@ -45,6 +52,9 @@ function App() {
       setError("");
     } catch (error) {
       setError("Erro ao buscar Pokémon");
+    }
+    finally{
+      setLoading(false);
     }
   };
 
@@ -101,9 +111,8 @@ function App() {
         <button type="button" onClick={pokemonAleatorio}>
           🎲 Aleatório
         </button>
-
       </form>
-
+      {loading && <p>Carregando...</p>}
       {error && <p className="error">{error}</p>}
 
       <div
@@ -164,7 +173,7 @@ function App() {
           </>
         )}
       </div>
-    </div >
+    </div >    
   );
 }
 

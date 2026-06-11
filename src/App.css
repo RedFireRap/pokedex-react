@@ -380,7 +380,7 @@ body {
   }
 
   .search-box button {
-    width: 100%;
+    width: 85%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -552,6 +552,170 @@ body {
     margin-top: 5px;
     color: white;
   }
-
-  /* FINALIZADO COM SUCESSO */
 }
+
+@media (max-width: 375px) {
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  .search-container button {
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-box {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .search-box input {
+    width: 200px;
+    padding: 5px;
+    height: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+  }
+
+  .search-box button {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  /* imagem do pokemon */
+  .pokemon-card img {
+    width: 140px;
+  }
+
+  /* nome do pokemon */
+  .pokemon-card h2 {
+    margin: 10px 0;
+    font-size: 25px;
+  }
+
+  .pokemon-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+  }
+
+  .info {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+  }
+
+  .type-badge {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .loading {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: white;
+  }
+}
+
+@media (max-width: 344px) {
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .app {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  .search-container button {
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-box {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .search-box input {
+    width: 200px;
+    padding: 5px;
+    height: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+  }
+
+  .search-box button {
+    padding: 10px;
+    font-size: 15px;
+    width: 150px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  /* imagem do pokemon */
+  .pokemon-card img {
+    width: 140px;
+  }
+
+  /* nome do pokemon */
+  .pokemon-card h2 {
+    margin: 10px 0;
+    font-size: 25px;
+  }
+
+  .pokemon-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+  }
+
+  .info {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+  }
+
+  .type-badge {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .loading {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    color: white;
+  }
+}
+
+/* FINALIZADO COM SUCESSO */
+/* FINALIZADO COM SUCESSO */

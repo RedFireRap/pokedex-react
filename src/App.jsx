@@ -12,7 +12,7 @@ function App() {
   try {
     setLoading(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
@@ -112,7 +112,7 @@ function App() {
           🎲 Aleatório
         </button>
       </form>
-      {loading && <p>Carregando...</p>}
+      {loading && <p className="loading">Carregando...</p>}
       {error && <p className="error">{error}</p>}
 
       <div
